@@ -8,6 +8,7 @@ public class Generator {
     private JPanel panelMain;
     private JTextField tfHely;
     private JButton btnOpen;
+    private JButton btnDel;
     private File path;
     private boolean notEmpty;
 
@@ -20,7 +21,7 @@ public class Generator {
                 int option = fileChooser.showOpenDialog(null);
                 if (option == JFileChooser.APPROVE_OPTION) {
                     File file = fileChooser.getSelectedFile();
-                    tfHely.setText("Folder: " + file.getName());
+                    tfHely.setText(file.getPath());
                     path = file;
                     notEmpty = true;
                 } else {
@@ -32,14 +33,20 @@ public class Generator {
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (notEmpty)
-                {
+                if (notEmpty) {
                     JOptionPane.showMessageDialog(null, "Created successfully!");
-
                     First.first(path);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please choose a folder!");
                 }
+            }
+        });
+
+        btnDel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Delete.del(path, 0);
+                JOptionPane.showMessageDialog(null, "Webpages deleted!");
             }
         });
     }
