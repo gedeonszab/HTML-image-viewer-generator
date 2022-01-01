@@ -2,30 +2,22 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Website generator
  */
 
-public class Main
-{
+public class First {
     public static int folderCount = 0;
     public static int filesCount = 0;
 
-    public static void main(File file)
-    {
-        //Scanner in = new Scanner(System.in);
-        //File home = new File(String.valueOf(in));
-        //String title = sc.nextLine();
+    public static void first(File file) {
         new htmlProcess("Title");
         int depth = 0;
-        folderSearch(file, depth); // Bejárás
-        //System.out.println("\nDONE!");
+        folderSearch(file, depth);
     }
 
-    public static void folderSearch(File base, int depth)
-    {
+    public static void folderSearch(File base, int depth) {
         List<String> extensions = List.of("jpg", "JPG", "png", "webp", "jpeg", "gif", "bmp", "svg");
         List<String> folder = new ArrayList<>();
         List<String> files = new ArrayList<>();

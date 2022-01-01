@@ -35,7 +35,7 @@ public class Generator {
                 if (notEmpty)
                 {
                     JOptionPane.showMessageDialog(null, "Created successfully!");
-                    Main.main(path);
+                    First.first(path);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please choose a folder!");
                 }
