@@ -13,17 +13,10 @@ public class Main
     public static int folderCount = 0;
     public static int filesCount = 0;
 
-    public static void main(String[] args)
+    public static void main(File file)
     {
-        if (args.length != 1) {
-            System.out.println("Hiba! Adjon meg egy elérési utat!");
-            System.exit(1);
-        }
-        File home = new File(args[0]);
-        if (!home.isDirectory()) {
-            System.out.println("Hiba! Könyvtárat adjon meg!");
-            System.exit(2);
-        }
+        Scanner in = new Scanner(System.in);
+        File home = new File(String.valueOf(in));
 
         System.out.println("Your HTML image browser!");
         System.out.print("Give a title: ");
