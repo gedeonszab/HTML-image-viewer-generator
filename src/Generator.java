@@ -46,7 +46,7 @@ public class Generator {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Delete.del(path, 0);
-                JOptionPane.showMessageDialog(null, "Webpages deleted!");
+                JOptionPane.showMessageDialog(null, "Webpages have been deleted!");
             }
         });
     }
