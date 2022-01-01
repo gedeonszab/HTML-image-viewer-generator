@@ -45,11 +45,14 @@ public class Generator {
     }
 
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch(Exception ignored){}
         createWindow();
     }
 
     public static void createWindow() {
-        JFrame frame = new JFrame("Generator");
+        JFrame frame = new JFrame("Generator by Nowai");
         frame.setContentPane(new Generator().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
