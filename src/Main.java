@@ -15,21 +15,13 @@ public class Main
 
     public static void main(File file)
     {
-        Scanner in = new Scanner(System.in);
-        File home = new File(String.valueOf(in));
-
-        System.out.println("Your HTML image browser!");
-        System.out.print("Give a title: ");
-        Scanner sc = new Scanner(System.in);
-        String title = sc.nextLine();
-        new htmlProcess(title);
-
+        //Scanner in = new Scanner(System.in);
+        //File home = new File(String.valueOf(in));
+        //String title = sc.nextLine();
+        new htmlProcess("Title");
         int depth = 0;
-        folderSearch(home, depth); // Bejárás
-        System.out.printf("Directories found: %s\n", folderCount);
-        System.out.printf("Images found: %s\n", filesCount);
-        System.out.printf("HTML files created: %s\n", folderCount + filesCount);
-        System.out.println("\nDONE!");
+        folderSearch(file, depth); // Bejárás
+        //System.out.println("\nDONE!");
     }
 
     public static void folderSearch(File base, int depth)
