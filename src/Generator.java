@@ -8,14 +8,10 @@ public class Generator {
     private JPanel panelMain;
     private JTextField tfHely;
     private JButton btnOpen;
+    private File path;
+    private boolean notEmpty;
 
     public Generator() {
-        btnStart.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Hello");
-            }
-        });
         btnOpen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -25,9 +21,23 @@ public class Generator {
                 if (option == JFileChooser.APPROVE_OPTION) {
                     File file = fileChooser.getSelectedFile();
                     tfHely.setText("Folder: " + file.getName());
-                    Main.main(file);
+                    path = file;
+                    notEmpty = true;
                 } else {
                     tfHely.setText("No folder selected!");
+                }
+            }
+        });
+
+        btnStart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (notEmpty)
+                {
+                    JOptionPane.showMessageDialog(null, "Created successfully!");
+                    Main.main(path);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please choose a folder!");
                 }
             }
         });
@@ -41,13 +51,8 @@ public class Generator {
         JFrame frame = new JFrame("Generator");
         frame.setContentPane(new Generator().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        createUI(frame);
         frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private static void createUI(JFrame frame) {
-
     }
 }
