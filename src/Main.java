@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * HTML képnézegető - 2021
- * images to html
+ * Website generator
  */
 
 public class Main
