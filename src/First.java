@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,7 +13,6 @@ public class First {
     public static int filesCount = 0;
 
     public static void first(File file) {
-        new htmlProcess("Title");
         int depth = 0;
         folderSearch(file, depth);
     }
