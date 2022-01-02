@@ -1,12 +1,10 @@
 import java.io.PrintWriter;
 import java.util.List;
 
-public class htmlToIndex
-{
+public class htmlToIndex {
     private htmlToIndex() {}
 
-    public static void buildIndex(PrintWriter pw, List<String> files, List<String> images, int depth, String title)
-    {
+    public static void bodyIndex(PrintWriter pw, List<String> files, List<String> images, int depth, String title) {
         pw.println("\t\t<title>" + title + "</title>");
         pw.println("\t</head>");
         pw.println("\t<body>");
