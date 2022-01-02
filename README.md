@@ -3,3 +3,4 @@ If you have a folder of images, this program will create html pages for it with 
 The index files will list the subdirectories and contain the images of the current folder.
 <br> -- uploading & cleaning up --
 ## Now with GUI!
+TODO: Finish readme
