@@ -28,7 +28,7 @@ public class First {
             {
                 folder.add(file.getName());
                 ++folderCount;
-                folderSearch(file, depth + 1); // rekurzív bejárás
+                folderSearch(file, depth + 1); // recursive dir lookup
             }
 
             else if (isOk(extensions, file)) {
@@ -37,22 +37,18 @@ public class First {
             }
         }
 
-        // rendezés abc sorrendbe
+        // Sorting folders
         Collections.sort(folder);
         Collections.sort(files);
 
-        // index készítés
-        htmlProcess.compileIndex(base.getPath(), folder, files, depth);
+        // Creating index.html
+        htmlProcess.createIndex(base.getPath(), folder, files, depth);
 
         for (int i = 0; i < files.size(); ++i)
         {
             String prev;
-            if (i == 0) {
-                prev = "";
-            }
-            else {
-                prev = htmlProcess.imgToHtml(files.get(i - 1));
-            }
+            if (i == 0) { prev = ""; }
+            else { prev = htmlProcess.imgToHtml(files.get(i - 1)); }
             String next;
             if (i == files.size() - 1) {
                 next = "";
@@ -60,8 +56,8 @@ public class First {
             else {
                 next = htmlProcess.imgToHtml(files.get(i + 1));
             }
-            // img készítés
-            htmlProcess.compileImg(htmlProcess.imgToHtml(base.getPath() + "/" + files.get(i)), files.get(i), prev, next, depth);
+            // Creating image.html
+            htmlProcess.createImage(htmlProcess.imgToHtml(base.getPath() + "/" + files.get(i)), files.get(i), prev, next, depth);
         }
     }
 
