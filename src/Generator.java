@@ -6,13 +6,15 @@ import java.io.File;
 public class Generator {
     private JButton btnStart;
     private JPanel panelMain;
-    private JTextField tfHely;
     private JButton btnOpen;
     private JButton btnDel;
+    private JTextField tfTitle;
+    private JProgressBar progressBar1;
     private File path;
     private boolean notEmpty;
 
     public Generator() {
+        btnStart.setEnabled(false);
         btnOpen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -21,12 +23,17 @@ public class Generator {
                 int option = fileChooser.showOpenDialog(null);
                 if (option == JFileChooser.APPROVE_OPTION) {
                     File file = fileChooser.getSelectedFile();
-                    tfHely.setText(file.getPath());
                     path = file;
                     notEmpty = true;
-                } else {
-                    tfHely.setText("No folder selected!");
                 }
+            }
+        });
+
+        tfTitle.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new htmlProcess(tfTitle.getText());
+                btnStart.setEnabled(true);
             }
         });
 
@@ -36,6 +43,7 @@ public class Generator {
                 if (notEmpty) {
                     JOptionPane.showMessageDialog(null, "Created successfully!");
                     First.first(path);
+                    progressBar1.setValue(100);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please choose a folder!");
                 }
