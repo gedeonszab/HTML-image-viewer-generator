@@ -1,11 +1,9 @@
 import java.io.PrintWriter;
 
-public class htmlToImg
-{
+public class htmlToImg {
     private htmlToImg() {}
 
-    public static void buildImg(PrintWriter pw, String image, String prev, String next)
-    {
+    public static void bodyImage(PrintWriter pw, String image, String prev, String next) {
         pw.println("\t\t<title>" + image + "</title>");
         pw.println("\t</head>");
         pw.println("\t<body>");
