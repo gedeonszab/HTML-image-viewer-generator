@@ -9,7 +9,7 @@ public class Generator {
     private JButton btnOpen;
     private JButton btnDel;
     private JTextField tfTitle;
-    private JProgressBar progressBar1;
+    private JProgressBar pBar;
     private File path;
     private boolean notEmpty;
 
@@ -43,7 +43,7 @@ public class Generator {
                 if (notEmpty) {
                     JOptionPane.showMessageDialog(null, "Created successfully!");
                     First.first(path);
-                    progressBar1.setValue(100);
+                    pBar.setValue(100);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please choose a folder!");
                 }
@@ -54,6 +54,7 @@ public class Generator {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Delete.del(path, 0);
+                pBar.setValue(0);
                 JOptionPane.showMessageDialog(null, "Webpages have been deleted!");
             }
         });
