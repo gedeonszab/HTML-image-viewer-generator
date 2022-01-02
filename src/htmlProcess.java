@@ -14,16 +14,14 @@ public class htmlProcess
         htmlProcess.title = title;
     }
 
-    public static String imgToHtml(String image)
-    {
+    public static String imgToHtml(String image) {
         StringBuilder sb = new StringBuilder(image);
         sb.replace(image.lastIndexOf('.') + 1, image.length(), "html");
 
         return sb.toString();
     }
 
-    public static void compileIndex(String path, List<String> files, List<String> images, int depth)
-    {
+    public static void createIndex(String path, List<String> files, List<String> images, int depth) {
         try {
             pw = new PrintWriter(path + "/" + "index.html", StandardCharsets.UTF_8);
         }
@@ -34,13 +32,12 @@ public class htmlProcess
             pw.close();
         }
         buildBase(depth);
-        htmlToIndex.buildIndex(pw, files, images, depth, title);
+        htmlToIndex.bodyIndex(pw, files, images, depth, title);
         // System.out.println(path);
         pw.close();
     }
 
-    public static void compileImg(String path, String image, String prev, String next, int depth)
-    {
+    public static void createImage(String path, String image, String prev, String next, int depth) {
         try {
             pw = new PrintWriter(path, StandardCharsets.UTF_8);
         }
@@ -50,14 +47,14 @@ public class htmlProcess
             System.out.println("Hiba! Kivétel történt!");
             pw.close();
         }
+
         buildBase(depth);
-        htmlToImg.buildImg(pw, image, prev, next);
+        htmlToImg.bodyImage(pw, image, prev, next);
         // System.out.println(image);
         pw.close();
     }
 
-    public static void buildBase(int depth)
-    {
+    public static void buildBase(int depth) {
         pw.println("<!DOCTYPE html>");
         pw.println("<html style=\"font-family: 'Courier New', monospace;\">");
         pw.println("\t<head>");
